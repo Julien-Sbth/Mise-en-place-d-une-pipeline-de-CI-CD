@@ -1,13 +1,14 @@
-name: Run Python Lint and Tests
+name: Lint, Test & Docker Build
 
 on:
   push:
     branches: [ "**" ]
     paths:
       - "**.py"
+      - Dockerfile
 
 jobs:
-  lint-and-test:
+  build-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -25,9 +26,10 @@ jobs:
         pip install pylint
 
     - name: Run pylint
-      run: |
-        pylint *.py
+      run: pylint *.py
 
     - name: Run unit tests
-      run: |
-        python -m unittest discover
+      run: python -m unittest discover
+
+    - name: Build Docker image
+      run: docker build -t my-python-app .
