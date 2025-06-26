@@ -6,6 +6,7 @@ Module providing a simple math class with unit tests.
 
 import unittest
 
+
 class SimpleMath:
     """Class for basic mathematical operations."""
 
@@ -13,6 +14,7 @@ class SimpleMath:
     def addition(a, b):
         """Return the sum of a and b."""
         return a + b
+
 
 class TestSimpleMath(unittest.TestCase):
     """Unit tests for the SimpleMath class."""
@@ -23,6 +25,7 @@ class TestSimpleMath(unittest.TestCase):
         self.assertEqual(SimpleMath.addition(-1, 1), 0)
         self.assertEqual(SimpleMath.addition(0, 0), 0)
         self.assertEqual(SimpleMath.addition(2.5, 3.5), 6.0)
+
 
 if __name__ == '__main__':
     unittest.main()
